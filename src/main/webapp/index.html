@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>LBRCE Attendance Management System</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(20, 70, 100, 0.55),
+            rgba(20, 70, 100, 0.55)
+        ),
+        url("assets/college.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.login-box {
+
+    width: 450px;
+
+    max-width: 95%;
+
+    background:
+        rgba(65, 105, 145, 0.95);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.4);
+
+    color: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.login-title {
+
+    text-align: center;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    padding: 18px;
+
+    background:
+        rgba(35, 75, 115, 0.95);
+}
+
+.login-body {
+
+    padding: 25px;
+}
+
+.row {
+
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 16px;
+}
+
+.row label {
+
+    width: 125px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+.row input,
+.row select {
+
+    flex: 1;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    padding: 8px 12px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.login-button {
+
+    text-align: right;
+
+    margin-top: 20px;
+}
+
+.login-button button {
+
+    background: #20a8df;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 28px;
+
+    font-size: 17px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+.login-button button:hover {
+
+    background: #0d88bd;
+}
+
+.remember {
+
+    margin-left: 125px;
+
+    font-size: 14px;
+}
+
+.signup-title {
+
+    text-align: center;
+
+    margin-top: 22px;
+
+    font-weight: bold;
+
+    border-top: 1px solid rgba(255,255,255,.3);
+
+    padding-top: 18px;
+}
+
+.signup-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+}
+
+.signup-buttons a {
+
+    flex: 1;
+
+    text-align: center;
+
+    padding: 11px 8px;
+
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    color: white;
+}
+
+.student-signup {
+
+    background: #168b45;
+}
+
+.faculty-signup {
+
+    background: #8e44ad;
+}
+
+.reset-password {
+
+    display: block;
+
+    text-align: center;
+
+    color: white;
+
+    margin-top: 15px;
+
+    text-decoration: underline;
+}
+
+.footer {
+
+    background: #f4f4f4;
+
+    color: #174c79;
+
+    text-align: center;
+
+    padding: 13px;
+
+    font-weight: bold;
+}
+
+@media(max-width:600px) {
+
+    .login-box {
+        width: 95%;
+    }
+
+    .row label {
+        width: 105px;
+    }
+
+    .remember {
+        margin-left: 105px;
+    }
+
+    .signup-buttons {
+        flex-direction: column;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="login-title">
+
+        LBRCE Attendance Management System
+    </div>
+
+
+    <div class="login-body">
+
+        <form
+            action="login.jsp"
+            method="post">
+
+            <div class="row">
+
+                <label>
+                    Login Type
+                </label>
+
+                <select
+                    name="role"
+                    required>
+
+                    <option value="">
+                        Select Login Type
+                    </option>
+
+                    <option value="STUDENT">
+                        Student
+                    </option>
+
+                    <option value="FACULTY">
+                        Faculty
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="row">
+
+                <label>
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Student ID / T101-T110"
+                    required>
+
+            </div>
+
+
+            <div class="row">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    required>
+
+            </div>
+
+
+            <div class="remember">
+
+                <input
+                    type="checkbox"
+                    name="remember"
+                    value="yes">
+
+                Remember me
+
+            </div>
+
+
+            <div class="login-button">
+
+                <button type="submit">
+
+                    Login ➜
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="signup-title">
+
+            New User? Register Here
+
+        </div>
+
+
+        <div class="signup-buttons">
+
+            <a
+                href="student-signup.jsp"
+                class="student-signup">
+
+                Student Signup
+
+            </a>
+
+
+            <a
+                href="faculty-signup.jsp"
+                class="faculty-signup">
+
+                Faculty Signup
+
+            </a>
+
+        </div>
+
+
+        <a
+            href="reset-password.jsp"
+            class="reset-password">
+
+            Forgot / Reset Password?
+
+        </a>
+
+    </div>
+
+
+    <div class="footer">
+
+        2026 © LBRCE -CSE-C@Team14(2024-28)
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
